@@ -38,3 +38,7 @@ CREATE TABLE haveread (
   created_at DATETIME NOT NULL,
   PRIMARY KEY(user_id, channel_id)
 ) Engine=InnoDB DEFAULT CHARSET=utf8mb4;
+
+alter table message add index message_index(channel_id, user_id);
+
+alter table image add index image_name(name);
