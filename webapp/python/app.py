@@ -209,6 +209,7 @@ def get_message():
         r['user'] = cur.fetchone()
         r['date'] = row['created_at'].strftime("%Y/%m/%d %H:%M:%S")
         r['content'] = row['content']
+        print(r)
         response.append(r)
     response.reverse()
 
