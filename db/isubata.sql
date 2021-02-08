@@ -11,7 +11,8 @@ CREATE TABLE user (
 CREATE TABLE image (
   id BIGINT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
   name VARCHAR(191),
-  data LONGBLOB
+  data LONGBLOB,
+  KEY `image_name` (`name`)
 ) Engine=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE channel (
@@ -27,7 +28,8 @@ CREATE TABLE message (
   channel_id BIGINT,
   user_id BIGINT,
   content TEXT,
-  created_at DATETIME NOT NULL
+  created_at DATETIME NOT NULL,
+  KEY `message_index`(`channel_id`, `user_id`)
 ) Engine=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE haveread (
